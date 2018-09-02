@@ -27,7 +27,7 @@ public class SelectSort {
         }
     }
 
-    public void swap(int one, int two){
+    private void swap(int one, int two){
         int temp = array[one];
         array[one] = array[two];
         array[two] = temp;

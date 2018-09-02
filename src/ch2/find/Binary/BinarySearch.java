@@ -1,6 +1,8 @@
 package ch2.find.Binary;
 
-public class BinarySearch {
+import ch2.find.Search;
+
+public class BinarySearch extends Search {
     private int[] array;
     private int size;
 

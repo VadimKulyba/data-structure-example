@@ -5,23 +5,25 @@ import ch3.simple.sort.select.SelectSort;
 public class Main {
 
     public static void main(String[] args) {
-        SelectSort search = new SelectSort(15);
+        testSelectSearch();
+    }
 
-        search.insert(77);
-        search.insert(99);
-        search.insert(44);
-        search.insert(55);
-        search.insert(22);
-        search.insert(88);
-        search.insert(11);
-        search.insert(0);
-        search.insert(66);
-        search.insert(33);
+    private static void testSelectSearch(){
+        SelectSort sort = new SelectSort(15);
 
-        search.display();
+        sort.insert(77);
+        sort.insert(99);
+        sort.insert(44);
+        sort.insert(55);
+        sort.insert(22);
+        sort.insert(88);
+        sort.insert(11);
+        sort.insert(0);
+        sort.insert(66);
+        sort.insert(33);
 
-        search.sort();
-
-        search.display();
+        sort.display();
+        sort.sort();
+        sort.display();
     }
 }

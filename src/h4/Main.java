@@ -3,14 +3,20 @@ package h4;
 import h4.queues.Queue;
 import h4.services.BracketChecker;
 import h4.services.Reverser;
+import h4.services.postdfix.notation.InToPostService;
+import h4.services.postdfix.notation.ParsePostService;
 import h4.stack.StackX;
+import main.SystemInput;
+
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
         testStack();
         testReverser();
         testBracket();
-        testQieue();
+        testQueue();
+        testConversion();
     }
 
     private static void testStack(){
@@ -36,7 +42,24 @@ public class Main {
         bracket.check();
     }
 
-    private static void testQieue(){
+    private static void testConversion() throws IOException{
+        String input, output;
+        while(true)
+        {
+            System.out.print("Enter infix: ");
+            System.out.flush();
+            input = SystemInput.scan();
+            if( input.equals("") )
+                break;
+            InToPostService theTrans = new InToPostService(input);
+            output = theTrans.doTrans();
+            System.out.println("Postfix is " + output + '\n');
+            ParsePostService postService = new ParsePostService(output);
+            System.out.println("Answer: " + postService.doParse());
+        }
+    }
+
+    private static void testQueue(){
         Queue theQueue = new Queue(5);
 
         theQueue.insert(10);
